@@ -67,24 +67,24 @@ const GameIntel = ({
         </p>
       )}
 
-      <p
+      <div
         className={clsx(
-          'p-4  w-full border-[var(--border-color)] flex gap-2  items-center',
+          'p-4 w-full border-[var(--border-color)] flex flex-col gap-2',
           trainingDojo === 'kana' && 'hidden'
         )}
       >
         <span className='flex gap-2 items-center'>
           <MousePointer size={20} className='text-[var(--main-color)]' />
-          selected levels:
+          Selected Levels:
         </span>
-        <span className='text-[var(--main-color)]'>
+        <span className='text-[var(--main-color)] text-sm break-words'>
           {trainingDojo === 'kanji'
             ? formatLevelsAsRanges(selectedKanjiSets)
             : trainingDojo === 'vocabulary'
               ? formatLevelsAsRanges(selectedVocabSets)
               : null}
         </span>
-      </p>
+      </div>
     </div>
   );
 };
