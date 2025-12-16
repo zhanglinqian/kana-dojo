@@ -435,11 +435,11 @@ const AchievementProgress = () => {
                   transition={{ delay: 0.1 * index }}
                   onClick={() => handleCategorySelect(category.id)}
                   className={clsx(
-                    'flex items-center gap-2 px-4 py-3 rounded-xl transition-all duration-200 hover:cursor-pointer',
-                    'border-2 font-medium',
+                    'flex items-center gap-2 px-4 py-3 rounded-2xl transition-all duration-200 hover:cursor-pointer',
+                    'font-medium',
                     isSelected
-                      ? 'bg-[var(--main-color)] text-[var(--background-color)] border-[var(--main-color)]'
-                      : 'bg-[var(--card-color)] text-[var(--main-color)] border-[var(--border-color)] hover:border-[var(--main-color)]'
+                      ? 'bg-[var(--main-color)] text-[var(--background-color)] border-b-6 border-[var(--main-color-accent)]'
+                      : 'bg-[var(--card-color)] text-[var(--main-color)] border-b-6 border-[var(--card-color)] hover:border-[var(--border-color)]/50 hover:bg-[var(--border-color)]/50'
                   )}
                 >
                   <CategoryIcon size={18} />
