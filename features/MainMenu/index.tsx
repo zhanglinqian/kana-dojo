@@ -100,9 +100,7 @@ const MainMenu = () => {
     >
       {isMounted && isLG && (
         <Suspense fallback={<></>}>
-          {process.env.NODE_ENV === 'production' && (
-            <Decorations expandDecorations={expandDecorations} />
-          )}
+          <Decorations expandDecorations={expandDecorations} forceShow={true} />
           <Button
             variant='secondary'
             size='icon'

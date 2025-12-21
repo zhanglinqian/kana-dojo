@@ -1,5 +1,12 @@
 'use client';
-import { useEffect, useState, useMemo, useCallback, useRef, memo } from 'react';
+import {
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+  useRef,
+  memo
+} from 'react';
 import themeSets from '@/features/Preferences/data/themes';
 import { useClick } from '@/shared/hooks/useAudio';
 import clsx from 'clsx';
@@ -296,28 +303,51 @@ interface StaticCharProps {
   isAnimating?: boolean;
 }
 
-const StaticChar = memo(({ style, isAnimating = false }: StaticCharProps) => (
-  <span
-    className={clsx(
-      'inline-flex items-center justify-center text-4xl',
-      style.fontClass
-    )}
-    aria-hidden='true'
-    style={{
-      color: style.color,
-      contentVisibility: 'auto',
-      containIntrinsicSize: '36px',
-      // Smooth transition when animation starts/stops - longer for peaceful effect
-      transition: `opacity ${ANIMATION_CONFIG.transitionDuration}ms ease-in-out`,
-      // Custom breathe animation - peaceful, zen-like pulsing
-      ...(isAnimating && {
-        animation: `breathe ${ANIMATION_CONFIG.pulseDuration}ms ease-in-out infinite`
-      })
-    }}
-  >
-    {style.char}
-  </span>
-));
+const StaticChar = memo(({ style, isAnimating = false }: StaticCharProps) => {
+  // Use a ref and state to handle smooth fade-out when animation stops
+  const [localOpacity, setLocalOpacity] = useState<number | undefined>(undefined);
+  const prevAnimating = useRef(isAnimating);
+
+  useEffect(() => {
+    // When switching from animating to not animating
+    if (prevAnimating.current && !isAnimating) {
+      // Force opacity to 1 with transition
+      setLocalOpacity(1);
+      const timer = setTimeout(() => {
+        setLocalOpacity(undefined);
+      }, ANIMATION_CONFIG.transitionDuration);
+      return () => clearTimeout(timer);
+    }
+    prevAnimating.current = isAnimating;
+  }, [isAnimating]);
+
+  return (
+    <span
+      className={clsx(
+        'inline-flex items-center justify-center text-4xl',
+        style.fontClass
+      )}
+      aria-hidden='true'
+      style={{
+        color: style.color,
+        contentVisibility: 'auto',
+        containIntrinsicSize: '36px',
+        // Smooth transition when animation starts/stops
+        transition: localOpacity !== undefined
+          ? `opacity ${ANIMATION_CONFIG.transitionDuration}ms ease-in-out`
+          : undefined,
+        // Set explicit opacity when fading back
+        ...(localOpacity !== undefined && { opacity: localOpacity }),
+        // Custom breathe animation - peaceful, zen-like pulsing
+        ...(isAnimating && localOpacity === undefined && {
+          animation: `breathe ${ANIMATION_CONFIG.pulseDuration}ms ease-in-out infinite`
+        })
+      }}
+    >
+      {style.char}
+    </span>
+  );
+});
 
 StaticChar.displayName = 'StaticChar';
 
