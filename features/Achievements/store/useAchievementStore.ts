@@ -1971,7 +1971,20 @@ const useAchievementStore = create<AchievementState>()(
         notifications: state.notifications,
         totalPoints: state.totalPoints,
         level: state.level
-      })
+      }),
+      merge: (persistedState, currentState) => {
+        const persisted = persistedState as
+          | Partial<AchievementState>
+          | undefined;
+
+        return {
+          ...currentState,
+          unlockedAchievements: persisted?.unlockedAchievements ?? {},
+          notifications: persisted?.notifications ?? [],
+          totalPoints: persisted?.totalPoints ?? 0,
+          level: persisted?.level ?? 1
+        };
+      }
     }
   )
 );

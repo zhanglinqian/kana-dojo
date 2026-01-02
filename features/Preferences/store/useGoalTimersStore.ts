@@ -40,27 +40,27 @@ export interface GoalTimersSettings {
 interface GoalTimersStore {
   // Templates
   templates: GoalTemplate[];
-  
+
   // History
   history: GoalAchievement[];
-  
+
   // Settings
   settings: GoalTimersSettings;
-  
+
   // Template Actions
   addTemplate: (template: Omit<GoalTemplate, 'id'>) => string;
   removeTemplate: (id: string) => void;
   updateTemplate: (id: string, updates: Partial<GoalTemplate>) => void;
   getTemplate: (id: string) => GoalTemplate | undefined;
-  
+
   // History Actions
   addToHistory: (achievement: Omit<GoalAchievement, 'id'>) => void;
   clearHistory: () => void;
   getHistoryByGoal: (goalId: string) => GoalAchievement[];
-  
+
   // Settings Actions
   updateSettings: (settings: Partial<GoalTimersSettings>) => void;
-  
+
   // Stats
   getTotalAchievements: () => number;
   getMostUsedTemplate: () => GoalTemplate | undefined;
@@ -76,7 +76,7 @@ const DEFAULT_TEMPLATES: GoalTemplate[] = [
     targetSeconds: 60,
     category: 'workout',
     icon: '🔥',
-    color: '#f59e0b',
+    color: '#f59e0b'
   },
   {
     id: 'sprint-5m',
@@ -84,7 +84,7 @@ const DEFAULT_TEMPLATES: GoalTemplate[] = [
     targetSeconds: 300,
     category: 'workout',
     icon: '⚡',
-    color: '#3b82f6',
+    color: '#3b82f6'
   },
   {
     id: 'focus-10m',
@@ -92,7 +92,7 @@ const DEFAULT_TEMPLATES: GoalTemplate[] = [
     targetSeconds: 600,
     category: 'productivity',
     icon: '🎯',
-    color: '#8b5cf6',
+    color: '#8b5cf6'
   },
   {
     id: 'pomodoro-25m',
@@ -100,7 +100,7 @@ const DEFAULT_TEMPLATES: GoalTemplate[] = [
     targetSeconds: 1500,
     category: 'pomodoro',
     icon: '🍅',
-    color: '#ef4444',
+    color: '#ef4444'
   },
   {
     id: 'break-5m',
@@ -108,7 +108,7 @@ const DEFAULT_TEMPLATES: GoalTemplate[] = [
     targetSeconds: 300,
     category: 'pomodoro',
     icon: '☕',
-    color: '#10b981',
+    color: '#10b981'
   },
   {
     id: 'study-30m',
@@ -116,8 +116,8 @@ const DEFAULT_TEMPLATES: GoalTemplate[] = [
     targetSeconds: 1800,
     category: 'study',
     icon: '📚',
-    color: '#6366f1',
-  },
+    color: '#6366f1'
+  }
 ];
 
 /**
@@ -127,7 +127,7 @@ const DEFAULT_SETTINGS: GoalTimersSettings = {
   defaultShowAnimation: true,
   defaultPlaySound: true,
   soundVolume: 50,
-  defaultTemplates: ['warmup-1m', 'sprint-5m', 'focus-10m'],
+  defaultTemplates: ['warmup-1m', 'sprint-5m', 'focus-10m']
 };
 
 /**
@@ -142,48 +142,48 @@ export const useGoalTimersStore = create<GoalTimersStore>()(
       settings: DEFAULT_SETTINGS,
 
       // Template Actions
-      addTemplate: (template) => {
+      addTemplate: template => {
         const id = `custom-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
         const newTemplate: GoalTemplate = {
           ...template,
           id,
-          category: template.category || 'custom',
+          category: template.category || 'custom'
         };
 
-        set((state) => ({
-          templates: [...state.templates, newTemplate],
+        set(state => ({
+          templates: [...state.templates, newTemplate]
         }));
 
         return id;
       },
 
-      removeTemplate: (id) => {
-        set((state) => ({
-          templates: state.templates.filter((t) => t.id !== id),
+      removeTemplate: id => {
+        set(state => ({
+          templates: state.templates.filter(t => t.id !== id)
         }));
       },
 
       updateTemplate: (id, updates) => {
-        set((state) => ({
-          templates: state.templates.map((t) =>
+        set(state => ({
+          templates: state.templates.map(t =>
             t.id === id ? { ...t, ...updates } : t
-          ),
+          )
         }));
       },
 
-      getTemplate: (id) => {
-        return get().templates.find((t) => t.id === id);
+      getTemplate: id => {
+        return get().templates.find(t => t.id === id);
       },
 
       // History Actions
-      addToHistory: (achievement) => {
+      addToHistory: achievement => {
         const newAchievement: GoalAchievement = {
           ...achievement,
-          achievedAt: new Date(),
+          achievedAt: new Date()
         };
 
-        set((state) => ({
-          history: [newAchievement, ...state.history],
+        set(state => ({
+          history: [newAchievement, ...state.history]
         }));
       },
 
@@ -191,14 +191,14 @@ export const useGoalTimersStore = create<GoalTimersStore>()(
         set({ history: [] });
       },
 
-      getHistoryByGoal: (goalId) => {
-        return get().history.filter((h) => h.goalId === goalId);
+      getHistoryByGoal: goalId => {
+        return get().history.filter(h => h.goalId === goalId);
       },
 
       // Settings Actions
-      updateSettings: (newSettings) => {
-        set((state) => ({
-          settings: { ...state.settings, ...newSettings },
+      updateSettings: newSettings => {
+        set(state => ({
+          settings: { ...state.settings, ...newSettings }
         }));
       },
 
@@ -215,7 +215,7 @@ export const useGoalTimersStore = create<GoalTimersStore>()(
 
         // Count achievements by goal ID
         const counts: Record<string, number> = {};
-        history.forEach((achievement) => {
+        history.forEach(achievement => {
           counts[achievement.goalId] = (counts[achievement.goalId] || 0) + 1;
         });
 
@@ -225,18 +225,37 @@ export const useGoalTimersStore = create<GoalTimersStore>()(
         )[0];
 
         // Return the template
-        return templates.find((t) => t.id === mostUsedId);
-      },
+        return templates.find(t => t.id === mostUsedId);
+      }
     }),
     {
       name: 'kanadojo-goal-timers', // localStorage key
       storage: createJSONStorage(() => localStorage),
       // Only persist templates, history, and settings
-      partialize: (state) => ({
+      partialize: state => ({
         templates: state.templates,
         history: state.history,
-        settings: state.settings,
+        settings: state.settings
       }),
+      merge: (persistedState, currentState) => {
+        const persisted = persistedState as
+          | Partial<GoalTimersStore>
+          | undefined;
+
+        return {
+          ...currentState,
+          templates: persisted?.templates ?? DEFAULT_TEMPLATES,
+          history: persisted?.history ?? [],
+          settings: {
+            ...DEFAULT_SETTINGS,
+            ...(persisted?.settings || {}),
+            // Ensure array has default if missing from persisted state
+            defaultTemplates:
+              persisted?.settings?.defaultTemplates ??
+              DEFAULT_SETTINGS.defaultTemplates
+          }
+        };
+      }
     }
   )
 );
