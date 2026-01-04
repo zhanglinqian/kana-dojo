@@ -40,8 +40,10 @@ const FontCard = memo(function FontCard({
         <span className='text-[var(--secondary-color)]'>
           {isSelected ? '\u2B24 ' : ''}
         </span>
-        <span className='text-[var(--main-color)]'>{fontName}</span>
-        {isDefault && ' (default)'}
+        <span className='text-[var(--main-color)]'>
+          {fontName}
+          {isDefault && ' (default)'}
+        </span>
         <span className='ml-2 text-[var(--secondary-color)]'>かな道場</span>
       </p>
     </label>
