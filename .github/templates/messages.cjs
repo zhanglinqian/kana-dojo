@@ -11,7 +11,7 @@ module.exports = {
     // Labels applied to newly created community issues
     newIssue: [
       'good first issue',
-      // 'community',
+      'community',
       'hacktoberfest',
       'help wanted',
       // 'easy',
@@ -134,7 +134,7 @@ module.exports = {
       greeting: 'Hey @{commenter}! 👋',
       body: 'Thanks for your interest! Unfortunately, this issue is already assigned to @{assignee}.',
       suggestion:
-        "Don't worry—we have new contribution opportunities posted every 15 minutes! Keep an eye on our [issues list](../../issues?q=is%3Aopen+is%3Aissue+label%3Acommunity) for the next one.",
+        "Don't worry—we have new contribution opportunities posted every 15 minutes! Keep an eye on our [issues list]({repoUrl}/issues?q=is%3Aopen+is%3Aissue+label%3Acommunity) for the next one.",
       encouragement: 'がんばって! 💪',
     },
     assigned: {
@@ -153,8 +153,8 @@ module.exports = {
       resources: {
         title: '**Helpful resources:**',
         items: [
-          '[Contributing Guide](../../blob/main/CONTRIBUTING.md)',
-          '[Code of Conduct](../../blob/main/CODE_OF_CONDUCT.md)',
+          '[Contributing Guide]({repoUrl}/blob/main/CONTRIBUTING.md)',
+          '[Code of Conduct]({repoUrl}/blob/main/CODE_OF_CONDUCT.md)',
         ],
       },
       footer: "Need help? Just comment here and we'll assist you!",
