@@ -62,6 +62,12 @@ const sitemapConfig = {
       '/jlpt/n3',
     ];
 
+    // Tools pages with custom priorities
+    const toolsPaths = [
+      { path: '/tools/anki-converter', priority: 0.8, changefreq: 'weekly' },
+      { path: '/tools/kana-chart', priority: 0.7, changefreq: 'monthly' },
+    ];
+
     // Popular Japanese verbs for conjugator sitemap entries
     // These are commonly searched verbs that should be indexed
     const popularVerbs = [
@@ -395,6 +401,11 @@ const sitemapConfig = {
     // Build entries for base paths (default priority)
     const baseEntries = basePaths.map(path => buildEntry(path));
 
+    // Build entries for tools paths (custom priorities)
+    const toolsEntries = toolsPaths.map(({ path, priority, changefreq }) =>
+      buildEntry(path, priority, changefreq),
+    );
+
     // Build entries for resource paths (custom priorities)
     const resourceEntries = resourcePaths.map(
       ({ path, priority, changefreq }) =>
@@ -407,7 +418,12 @@ const sitemapConfig = {
         buildEntry(path, priority, changefreq),
     );
 
-    return [...baseEntries, ...resourceEntries, ...conjugatorEntries];
+    return [
+      ...baseEntries,
+      ...toolsEntries,
+      ...resourceEntries,
+      ...conjugatorEntries,
+    ];
   },
   exclude: [
     '/api/*',
