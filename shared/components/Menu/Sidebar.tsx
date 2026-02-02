@@ -111,8 +111,6 @@ type NavLinkProps = {
   variant: 'main' | 'secondary';
   /** When true, uses framer-motion sliding indicator behind nav item */
   useSlidingIndicator?: boolean;
-  /** When true, uses smaller font size for experiment items */
-  isExperiment?: boolean;
 };
 
 const NavLink = memo(
@@ -122,14 +120,13 @@ const NavLink = memo(
     onClick,
     variant,
     useSlidingIndicator = false,
-    isExperiment = false,
   }: NavLinkProps) => {
     const Icon = item.icon;
     const isMain = variant === 'main';
 
     const baseClasses = clsx(
       'flex items-center gap-2 rounded-2xl transition-all duration-250',
-      isMain ? 'text-2xl' : isExperiment ? 'text-sm' : 'text-base',
+      isMain ? 'text-2xl' : 'text-base',
       'max-lg:justify-center max-lg:px-3 max-lg:py-2 lg:w-full lg:px-4 lg:py-2',
       !isMain && 'max-lg:hidden',
     );
@@ -199,7 +196,7 @@ const NavLink = memo(
             onClick={onClick}
             className={clsx(
               'relative z-10 flex items-center gap-2 rounded-2xl',
-              isMain ? 'text-2xl' : isExperiment ? 'text-sm' : 'text-base',
+              isMain ? 'text-2xl' : 'text-base',
               'max-lg:justify-center max-lg:px-3 lg:w-full lg:px-4',
               paddingClasses,
               !isMain && 'max-lg:hidden',
@@ -231,7 +228,7 @@ const NavLink = memo(
             borderRadius='xl'
             className={clsx(
               'flex items-center gap-2',
-              isMain ? 'text-2xl' : isExperiment ? 'text-sm' : 'text-base',
+              isMain ? 'text-2xl' : 'text-base',
               'max-lg:justify-center max-lg:px-3 max-lg:py-2 lg:w-full lg:px-4 lg:py-2',
               !isMain && 'max-lg:hidden',
             )}
@@ -284,7 +281,7 @@ const SectionHeader = ({
     return (
       <button
         onClick={onToggle}
-        className='mt-1.5 flex w-full cursor-pointer items-center gap-1 px-4 text-xs text-(--main-color) uppercase opacity-70 transition-opacity hover:opacity-100 max-lg:hidden'
+        className='mt-3 flex w-full cursor-pointer items-center gap-1 px-4 text-xs text-(--main-color) uppercase opacity-70 transition-opacity hover:opacity-100 max-lg:hidden'
       >
         {isExpanded ? (
           <ChevronDown className='h-3 w-3' />
@@ -297,7 +294,7 @@ const SectionHeader = ({
   }
 
   return (
-    <div className='mt-1.5 w-full px-4 text-xs text-(--main-color) uppercase opacity-70 max-lg:hidden'>
+    <div className='mt-3 w-full px-4 text-xs text-(--main-color) uppercase opacity-70 max-lg:hidden'>
       {title}
     </div>
   );
@@ -574,7 +571,6 @@ const Sidebar = () => {
                   onClick={playClick}
                   variant='secondary'
                   useSlidingIndicator={true}
-                  isExperiment={section.title === 'Experiments'}
                 />
               ))}
           </div>
