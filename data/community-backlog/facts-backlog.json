@@ -746,31 +746,31 @@
   {
     "id": 125,
     "fact": "The word 'yoroshiku' (よろしく) has no direct translation - it's used for introductions, requests, and meaning 'please treat me well'.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
     "id": 126,
     "fact": "Japan's streets are so safe that children as young as 6 commute alone on public trains to school every day.",
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "id": 127,
     "fact": "There's a Japanese concept 'on' (恩) - a debt of gratitude so deep it can never truly be repaid, only acknowledged.",
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "id": 128,
     "fact": "Japan has 'host clubs' where women pay to be flattered and entertained by handsome young men over expensive drinks.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
     "id": 129,
     "fact": "The Japanese word 'ganbarimasu' (頑張ります) is said before attempting something difficult - a commitment to do your absolute best.",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {

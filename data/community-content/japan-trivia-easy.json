@@ -218,15 +218,15 @@
     "Yakitori"
   ],
   "correctIndex": 0
-},
-{
-  "question": "What is the Japanese term for a summer fireworks festival?",
+  },
+  {
+  "question": "What is the Japanese term for a shrine gate?",
   "difficulty": "easy",
   "answers": [
-    "Hanabi Taikai",
-    "Bon Odori",
-    "Kagura",
-    "Kanda Matsuri"
+    "Torii",
+    "Tori",
+    "Toriya",
+    "Torin"
   ],
   "correctIndex": 0
 }
