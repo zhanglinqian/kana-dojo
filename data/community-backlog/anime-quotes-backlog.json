@@ -506,7 +506,7 @@
     "english": "Running away can take courage too.",
     "anime": "Mob Psycho 100",
     "character": "Arataka Reigen",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
@@ -516,7 +516,7 @@
     "english": "Lend me your energy!",
     "anime": "Dragon Ball Z",
     "character": "Son Goku",
-    "completed": false,
+    "completed": true,
     "issued": false
   }
 ]
