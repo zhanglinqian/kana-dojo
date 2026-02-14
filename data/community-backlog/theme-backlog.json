@@ -441,7 +441,7 @@
     "mainColor": "oklch(70.0% 0.175 20.0 / 1)",
     "secondaryColor": "oklch(75.0% 0.165 145.0 / 1)",
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "id": "ninja-shadow",
@@ -450,8 +450,10 @@
     "backgroundColor": "oklch(12.0% 0.015 280.0 / 1)",
     "mainColor": "oklch(65.0% 0.025 270.0 / 1)",
     "secondaryColor": "oklch(55.0% 0.175 15.0 / 1)",
-    "issued": false,
-    "completed": false
+    "issued": true,
+    "completed": true,
+    "completedBy": "zhanglinqian",
+    "completedPR": 4849
   },
   {
     "id": "konbini-light",
@@ -461,7 +463,7 @@
     "mainColor": "oklch(55.0% 0.185 200.0 / 1)",
     "secondaryColor": "oklch(60.0% 0.155 25.0 / 1)",
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "id": "sumo-strength",
@@ -470,8 +472,10 @@
     "backgroundColor": "oklch(20.0% 0.022 35.0 / 1)",
     "mainColor": "oklch(72.0% 0.065 75.0 / 1)",
     "secondaryColor": "oklch(60.0% 0.185 20.0 / 1)",
-    "issued": false,
-    "completed": false
+    "issued": true,
+    "completed": true,
+    "completedBy": "zhanglinqian",
+    "completedPR": 4862
   },
   {
     "id": "sakura-storm",
@@ -480,8 +484,10 @@
     "backgroundColor": "oklch(90.0% 0.032 340.0 / 1)",
     "mainColor": "oklch(70.0% 0.185 345.0 / 1)",
     "secondaryColor": "oklch(55.0% 0.145 350.0 / 1)",
-    "issued": false,
-    "completed": false
+    "issued": true,
+    "completed": true,
+    "completedBy": "zhanglinqian",
+    "completedPR": 4860
   },
   {
     "id": "ramen-steam",
@@ -491,7 +497,7 @@
     "mainColor": "oklch(82.0% 0.135 85.0 / 1)",
     "secondaryColor": "oklch(65.0% 0.165 40.0 / 1)",
     "issued": false,
-    "completed": false
+    "completed": true
   },
   {
     "id": "ghost-parade",
@@ -500,7 +506,7 @@
     "backgroundColor": "oklch(15.0% 0.045 310.0 / 1)",
     "mainColor": "oklch(88.0% 0.065 285.0 / 1)",
     "secondaryColor": "oklch(70.0% 0.145 340.0 / 1)",
-    "issued": false,
+    "issued": true,
     "completed": false
   },
   {
