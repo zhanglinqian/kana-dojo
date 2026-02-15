@@ -112,7 +112,9 @@ const ThemeCard = memo(function ThemeCard({
       onMouseLeave={() => setIsHovered(false)}
       onClick={() => onClick(theme.id)}
     >
-      <div className={`mb-2 ${isPremiumTheme ? 'invisible' : ''}`}>
+      <div
+        className={`mb-2 ${isPremiumTheme ? 'invisible h-8 overflow-hidden text-left' : ''}`}
+      >
         {isChaosTheme ? (
           <span className='relative flex items-center justify-center text-sm text-white capitalize'>
             {/* <span

@@ -1,4 +1,4 @@
-[ 
+[
   {
     "id": "vaporwave-shrine",
     "backgroundColor": "oklch(17.0% 0.072 305.0 / 1)",
@@ -294,9 +294,33 @@
     "secondaryColor": "oklch(55.0% 0.145 350.0 / 1)"
   },
   {
-    "id": "torii-sunset",
-    "backgroundColor": "oklch(22.0% 0.058 35.0 / 1)",
-    "mainColor": "oklch(75.0% 0.195 40.0 / 1)",
-    "secondaryColor": "oklch(85.0% 0.155 70.0 / 1)"
+    "id": "sumo-strength",
+    "backgroundColor": "oklch(20.0% 0.022 35.0 / 1)",
+    "mainColor": "oklch(72.0% 0.065 75.0 / 1)",
+    "secondaryColor": "oklch(60.0% 0.185 20.0 / 1)"
+  },
+  {
+    "id": "izakaya-warm",
+    "backgroundColor": "oklch(20.0% 0.045 35.0 / 1)",
+    "mainColor": "oklch(70.0% 0.165 30.0 / 1)",
+    "secondaryColor": "oklch(80.0% 0.115 65.0 / 1)"
+  },
+  {
+    "id": "onsen-steam",
+    "backgroundColor": "oklch(25.0% 0.022 210.0 / 1)",
+    "mainColor": "oklch(85.0% 0.085 215.0 / 1)",
+    "secondaryColor": "oklch(70.0% 0.065 195.0 / 1)"
+  },
+  {
+    "id": "bamboo-forest",
+    "backgroundColor": "oklch(21.0% 0.045 155.0 / 1)",
+    "mainColor": "oklch(70.0% 0.145 150.0 / 1)",
+    "secondaryColor": "oklch(78.0% 0.095 140.0 / 1)"
+  },
+  {
+    "id": "lavender-fields",
+    "backgroundColor": "oklch(19.0% 0.058 290.0 / 1)",
+    "mainColor": "oklch(70.0% 0.165 295.0 / 1)",
+    "secondaryColor": "oklch(80.0% 0.125 285.0 / 1)"
   }
 ]
